@@ -13,19 +13,20 @@ character_stats = {
 def stat_add(stat: str, value: int):
     character_stats[stat] += value
 
-def stat_set(stat, value):
+def stat_set(stat: str, value: int):
     character_stats[stat] = value
 
 stats = character_stats
 
-
+p_class = ""
+name = ""
 
 # Introduction and character selection phase
 def intro():
     print("Welcome Traveler, what is your name? ")
 
     while True:  # This will loop asking for your name if you say anything other than yes.
-        global name
+        global name, p_class
 
         p_class = ""
         name = str(input("Enter your name: ")).capitalize()
@@ -78,11 +79,11 @@ def stat_changer():
 def display():
     print(f"{name}'s Stats:")
     print("Attack:", stats['attack'])
-    print("Attack:", stats['crit_chance'])
+    print("Crit Chance:", stats['crit_chance'])
     print("Defense:", stats['defense'])
     print("Speed:", stats['speed'])
     print("Dodge Chance:", stats['dodge'])
-    print("Current Health:", stats['current_health'])
+    print("Current Health:", stats['current_health'],"/",stats["max_health"])
     print("Your class:", p_class)
 
 # Display character stats and information
