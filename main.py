@@ -4,7 +4,7 @@ import cave
 import rand
 import Intro
 
-def path(name, p_class):
+def path():
     event_chance = 20
     turns = 10
 
@@ -28,17 +28,20 @@ def path(name, p_class):
 def event(interaction):
     if interaction == 1:
         battle.battle
+        print("Battle") # HACK
     if interaction == 2:
         cave.cave
+        print("Cave") # HACK
     if interaction == 3:
         rand.event
+        print("rand Event") # HACK
 
-    input("Press Enter to continue...")
+    input("Press Enter to continue... This was an event") # HACK
     return
 
 debug = 1
 
 if debug == 1:
-    name = "Debug"
-    p_class = "Warrior"
-    path(name, p_class)
+    Intro.name = "Debug"
+    Intro.p_class = "Warrior"
+    path()
