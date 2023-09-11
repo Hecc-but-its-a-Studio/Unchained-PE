@@ -1,25 +1,5 @@
 import main
-
-character_stats = {
-    'attack': 1,
-    'defense': 1,
-    'speed': 1,
-    'dodge': 1,
-    'max_health': 1,
-    'current_health': 1,
-    'crit_chance': 10
-}
-
-def stat_add(stat: str, value: int):
-    character_stats[stat] += value
-
-def stat_set(stat: str, value: int):
-    character_stats[stat] = value
-
-stats = character_stats
-
-p_class = ""
-name = ""
+import stats
 
 # Introduction and character selection phase
 def intro():
@@ -67,23 +47,24 @@ def class_select():
 def stat_changer():
     global stats
     if p_class == "Warrior":
-        stat_set('attack', 5)
-        stat_set('defense', 5)
-        stat_set('speed', 5)
-        stat_set('dodge', 5)
-        stat_set('max_health', 15)
+        stats.stat_set('attack', 5)
+        stats.stat_set('defense', 5)
+        stats.stat_set('speed', 5)
+        stats.stat_set('dodge', 5)
+        stats.stat_set('max_health', 15)
 
-    stats['current_health'] = stats['max_health']
+    stats.stats['current_health'] = stats.stats['max_health']
     begin()
 
 def display():
     print(f"{name}'s Stats:")
-    print("Attack:", stats['attack'])
-    print("Crit Chance:", stats['crit_chance'])
-    print("Defense:", stats['defense'])
-    print("Speed:", stats['speed'])
-    print("Dodge Chance:", stats['dodge'])
-    print("Current Health:", stats['current_health'],"/",stats["max_health"])
+    print("Attack:", stats.stats['attack'])
+    print("Crit Chance:", stats.stats['crit_chance'])
+    print("Crit Damage:", stats.stats['crit_damage'])
+    print("Defense:", stats.stats['defense'])
+    print("Speed:", stats.stats['speed'])
+    print("Dodge Chance:", stats.stats['dodge'])
+    print("Current Health:", stats.stats['current_health'],"/",stats.stats["max_health"])
     print("Your class:", p_class)
 
 # Display character stats and information
